@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/home">ET PHONE HOME</a>
+        <a href="/logout">Get outta 'ere</a>
+
+    <h2>{{trips.destination}}</h2>
+    Planned by: {{trips.plannedby.name}} <br> <br>
+    Description: {{trips.description}} <br> <br>
+    From: {{trips.fromdate}} <br> <br>
+    To: {{trips.todate}} <br> <br>
+
+    <h3>Other's Joining:</h3>
+    
+    {%for join in joining %}
+    <p>{{join.name}}</p>
+    {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello {{users.name}}!</h1>
+        <a href="/add">Add a Travel Plan</a>
+        <br><br><br>
+        <a href="/logout">Get outta 'ere</a>
+
+
+        <h2>My Trips</h2>
+        <h2>{% for trip in mytrips %}
+                <a href="destination/{{trip.id}}"> {{trip.destination}}</a>
+                Planned By: Me; {{trip.plannedby.id}}
+                <!-- used to show different ID's in use -->
+                Start Day: {{trip.fromdate}}
+                End Day: {{trip.todate}} 
+                Trip ID: {{trip.id}}
+                Description: {{trip.description}}<br> <br>
+                {% endfor %}
+                {% for trip2 in trips %}
+                <a href="destination/{{trip2.id}}">{{trip2.destination}}</a>
+                Planned By: {{trip2.plannedby.name}} {{trip2.plannedby.id}}
+                Start Day:{{trip2.fromdate}}
+                End Day: {{trip2.todate}}
+                Trip ID:{{trip2.id}}
+                Description: {{trip2.description}}<br> <br>
+                {% endfor %}</h2> 
+                
+                <h3>Other's Trips</h3>
+                <h3>{% for trip3 in othertrips %}
+                    Planned by:{{trip3.plannedby.name}}, ID:
+                    {{trip3.plannedby.id}},
+                    <!-- used to show different ID's in use -->
+                <a href="destination/{{trip3.id}}"> {{trip3.destination}}</a>
+                
+                Start Day: {{trip3.fromdate}}
+                End Day:{{trip3.todate}}
+                <a href="/join/{{trip3.id}}">Join</a> <br> <br>
+                
+                {% endfor %}</h3>
+</body>
+</html>
